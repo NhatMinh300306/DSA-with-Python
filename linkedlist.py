@@ -6,6 +6,7 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None
+        self.size = 0
     
     def createNode(self, item):
         return Node(item)
