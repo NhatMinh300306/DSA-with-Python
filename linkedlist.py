@@ -15,25 +15,30 @@ class LinkedList:
         newNode = self.createNode(item)
         if self.head is None:
             self.head = newNode
+            self.size += 1
             return
         else:
             newNode.next = self.head
             self.head = newNode
+            self.size += 1
 
     def addLast(self, item):
         newNode = self.createNode(item)
         if self.head is None:
             self.head = newNode
+            self.size += 1
             return
         temp = self.head
         while temp.next is not None:
             temp = temp.next
         temp.next = newNode
+        self.size += 1
 
     def deleteFirst(self):
         if self.head is None:
             return
         self.head = self.head.next
+        self.size -= 1
         
     def deleteLast(self):
         if self.head is None:
@@ -41,13 +46,14 @@ class LinkedList:
 
         if self.head.next is None:
             self.head = None
+            self.size -= 1
             return
         
         temp = self.head
         while temp.next.next is not None:
             temp = temp.next
         temp.next = None
-
+        self.size -= 1
     
     def display(self):
         if self.head is None:
