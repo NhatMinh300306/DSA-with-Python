@@ -58,13 +58,32 @@ class BinarySearchTree:
         self._postorderTraversal(node.right)
         print(node.item, end=" ")
 
+    def flipTree(self):
+        self._flipTree(self.root)
+        print()
+
+    def _flipTree(self, node):
+        if node is None:
+            return
+        temp = node.left
+        node.left = node.right
+        node.right = temp
+
+        self._flipTree(node.left)
+        self._flipTree(node.right)
+
 
 tree = BinarySearchTree()
 tree.insert(1)
 tree.insert(3)
 tree.insert(2)
+tree.insert(0.5)
 
 tree.preorderTraversal()
 tree.inorderTraversal()
 tree.postorderTraversal()
         
+tree.flipTree()
+tree.preorderTraversal()
+tree.inorderTraversal()
+tree.postorderTraversal()
